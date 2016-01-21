@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>MagicBootTabs - JQuery Plugin</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="" />
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//bootswatch.com/superhero/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+		<h2>
+			MagicBootTabs - JQuery Plugin
+			<br/><small>A nice way of styling and using Bootstrap tabs for content</small>
+		</h2>
+	</div>
+
+	<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+		<ul class="nav nav-tabs" role="tablist" id="magicBootTabsDemo">
+			<li role="presentation" class="active">
+				<a href="#demo" aria-controls="demo" role="tab" data-toggle="tab">Hey</a>
+			</li>
+			<li role="presentation">
+				<a href="#use" aria-controls="use" role="tab" data-toggle="tab">Use</a>
+			</li>
+			<li role="presentation">
+				<a href="#opts" aria-controls="opts" role="tab" data-toggle="tab">Options</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane fade in active" id="demo">
+				<h3>Hey! (Demo)</h3>
+				<hr/>
+				<p>
+					This kinda is what MagicBootTabs looks like, this is the demo ;)
+					<br/> Look at the tabs above to see how the MagicBootTab looks, hover over another tab to see the effect
+					<br/>
+					<br/><small>The Plugin Also Make Console Look Pretty Cool</small>
+				</p>
+			</div>
+
+			<div role="tabpanel" class="tab-pane fade" id="use">
+				<h3>How to use it</h3>
+				<hr/>
+				<p>
+					To start using MagicBootTabs, setup your bootstrap page, using tabbed content, then include and call the plugin.
+					<br/>Use this url to include the script: <code>//rawgithub.com/MattCowley/MagicBootTabs/master/jquery.magicBootTabs.js</code>
+				</p>
+
+				<pre>
+&lt;html&gt;
+
+&lt;head&gt;
+	&lt;title&gt;MagicBootTabs Demo&lt;/title&gt;
+	&lt;link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+	&lt;ul class="nav nav-tabs" role="tablist" <mark>id="magicBootTabsDemo"</mark>&gt;
+
+		&lt;li role="presentation" class="active"&gt;
+			&lt;a href="#t1" aria-controls="t1" role="tab" data-toggle="tab">Tab 1&lt;/a&gt;
+		&lt;/li&gt;
+
+		&lt;li role="presentation"&gt;
+			&lt;a href="#t2" aria-controls="t2" role="tab" data-toggle="tab">Tab 2&lt;/a&gt;
+		&lt;/li&gt;
+
+		&lt;li role="presentation"&gt;
+			&lt;a href="#t3" aria-controls="t3" role="tab" data-toggle="tab">Tab 3&lt;/a&gt;
+		&lt;/li&gt;
+
+		&lt;li role="presentation"&gt;
+			&lt;a href="#t4" aria-controls="t4" role="tab" data-toggle="tab">Tab 4&lt;/a&gt;
+		&lt;/li&gt;
+
+	&lt;/ul&gt;
+
+	&lt;div class="tab-content"&gt;
+
+		&lt;div role="tabpanel" class="tab-pane fade in active" id="t1"&gt;
+			Tab 1 Content
+		&lt;/div&gt;
+
+		&lt;div role="tabpanel" class="tab-pane fade" id="t2"&gt;
+			Tab 2 Content
+		&lt;/div&gt;
+
+		&lt;div role="tabpanel" class="tab-pane fade" id="t3"&gt;
+			Tab 3 Content
+		&lt;/div&gt;
+
+		&lt;div role="tabpanel" class="tab-pane fade" id="t4"&gt;
+			Tab 4 Content
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+	&lt;script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"&gt;&lt;/script&gt;
+	&lt;script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"&gt;&lt;/script&gt;
+	&lt;script type='text/javascript' src="//rawgithub.com/MattCowley/MagicBootTabs/master/jquery.magicBootTabs.js"&gt;&lt;/script&gt;
+
+	&lt;script&gt;$("<mark>#magicBootTabsDemo</mark>").magicBootTab();&lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+				</pre>
+				<p>
+					<small>The JS will self check that JQuery and Bootstrap Tabs are both loaded, and if both are present it will run and include the CSS itself.<br/>Check Dev Console For Its Progress As It Loads.</small>
+				</p>
+			</div>
+
+			<div role="tabpanel" class="tab-pane fade" id="opts">
+				<h3>Plugin Options</h3>
+				<hr/>
+				<p>
+					When calling MagicBootTabs, you can set a few options for it.
+				</p>
+
+				<pre>
+&lt;script&gt;
+	$("#magicBootTabsDemo").magicBootTab({
+		lnColor: "#ff0000", 	//The Color Of The Magic Line, Defaults to #4183D7 if not set
+		acColor: "#0000ff", 	//The Color Of The Active Tab Text, Defaults to #4183D7 if not set
+		speed: 300 		//The Speed Of The Magic Line Movement, Defaults to 400 if not set
+	});
+&lt;/script&gt;
+				</pre>
+		</div>
+	</div>
+
+	<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script type='text/javascript' src="//rawgithub.com/MattCowley/MagicBootTabs/master/jquery.magicBootTabs.js"></script>
+
+	<script>
+		$("#magicBootTabsDemo").magicBootTab({
+			lnColor: "#e67e22",
+			acColor: "#e67e22",
+			speed: 400
+		});
+	</script>
+
+</body>
