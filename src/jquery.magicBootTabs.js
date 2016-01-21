@@ -214,19 +214,21 @@ if (typeof jQuery != 'undefined') {
 						.stop().animate({
 							left: leftPos,
 							width: newWidth
-						}, animateSpeed)
-						.width($el.parent().width())
-						.css("left", $el.position().left)
-						.data("origLeft", $magicLine.position().left)
-						.data("origWidth", $magicLine.width());
+						}, animateSpeed, function() {
+							$magicLine
+								.width($el.parent().width())
+								.css("left", $el.position().left)
+								.data("origLeft", $magicLine.position().left)
+								.data("origWidth", $magicLine.width());
+						});
 				});
 			} else {
 				//Set Org Height
-				$magicLine
-					.stop().animate({
-						height: $tabId.find("li.active").height()
-					}, animateSpeed)
-					.data("origHeight", $magicLine.height());
+				$magicLine.stop().animate({
+					height: $tabId.find("li.active").height()
+				}, animateSpeed, function() {
+					$magicLine.data("origHeight", $magicLine.height());
+				});
 
 				//Hover Event
 				$tabId.find("li a").hover(function() {
