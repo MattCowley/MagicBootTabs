@@ -96,6 +96,9 @@ if (typeof jQuery != 'undefined') {
 			animateSpeedDef = typeof options.speed !== 'undefined' ? true : false;
 			animateSpeed = typeof options.speed !== 'undefined' ? options.speed : 400;
 
+			// Check If Advanced Animation Is Defined
+			advAnimation = typeof options.advanced !== 'undefined' ? options.advanced : false;
+
 			// Create Usable Plugin Variables
 			$tabId = this;
 			tabIdAttr = this.attr("id");
@@ -153,6 +156,20 @@ if (typeof jQuery != 'undefined') {
 				));
 			}
 
+			if (advAnimation) {
+				consolelog(Array(
+					"Tab -- #F27935",
+					"#" + tabIdAttr + " -- #F27935",
+					"Advanced Animation Mode Enabled -- #6BB9F0"
+				));
+			} else {
+				consolelog(Array(
+					"Tab -- #F27935",
+					"#" + tabIdAttr + " -- #F27935",
+					"Advanced Animation Mode Disabled -- #6BB9F0"
+				));
+			}
+
 			// Set Custom Colors For MagicTab
 			$("head style#magicBootTabsStyles").append(".nav-tabs#" + tabIdAttr + " > li.active > a { color: " + activecolor + " }\n");
 			$("head style#magicBootTabsStyles").append(".nav-tabs#" + tabIdAttr + " > li#magic-line { background: " + linecolor + " }\n");
@@ -167,6 +184,7 @@ if (typeof jQuery != 'undefined') {
 			//Begin - Set Original Values
 			$magicLine
 				.width($(".active").width())
+				.height(2)
 				.css("left", $(".active a").position().left)
 				.data("origLeft", $magicLine.position().left)
 				.data("origWidth", $magicLine.width());
