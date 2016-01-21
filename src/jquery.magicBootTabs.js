@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.05";
+var magicBootTabsVersion = "1.07";
 
 // Colored Console Logging Function
 function consolelog(message) {
