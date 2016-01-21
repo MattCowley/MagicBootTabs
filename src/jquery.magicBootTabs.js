@@ -210,17 +210,16 @@ if (typeof jQuery != 'undefined') {
 					$el = $(this);
 					leftPos = $el.position().left
 					newWidth = $el.parent().width();
-					$magicLine
-						.stop().animate({
-							left: leftPos,
-							width: newWidth
-						}, animateSpeed, function() {
-							$magicLine
-								.width($el.parent().width())
-								.css("left", $el.position().left)
-								.data("origLeft", $magicLine.position().left)
-								.data("origWidth", $magicLine.width());
-						});
+					$magicLine.stop().animate({
+						left: leftPos,
+						width: newWidth
+					}, animateSpeed, function() {
+						$magicLine
+							.width($el.parent().width())
+							.css("left", $el.position().left)
+							.data("origLeft", $magicLine.position().left)
+							.data("origWidth", $magicLine.width());
+					});
 				});
 			} else {
 				//Set Org Height
@@ -286,7 +285,8 @@ if (typeof jQuery != 'undefined') {
 									.data("origHeight", $magicLine.height())
 									.data("origWidth", $magicLine.width());
 							});
-						});	
+						});
+					});	
 				});
 			}
 
