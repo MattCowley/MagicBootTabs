@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.08";
+var magicBootTabsVersion = "1.09";
 
 // Colored Console Logging Function
 function consolelog(message) {
@@ -185,7 +185,7 @@ if (typeof jQuery != 'undefined') {
 			$magicLine
 				.width($(".active").width())
 				.css("left", $(".active a").position().left)
-				.css("z-index", $tabId.css("z-index")-10)
+				.css("zIndex", -1)
 				.data("origLeft", $magicLine.position().left)
 				.data("origWidth", $magicLine.width());
 
