@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.12";
+var magicBootTabsVersion = "1.13";
 
 // Colored Console Logging Function
 function consolelog(message) {
@@ -246,7 +246,7 @@ if (typeof jQuery != 'undefined') {
 						}, animateSpeed/1.5, function() {
 							$magicLine.stop().animate({
 								height: newHeight
-							}, animateSpeed/3);
+							}, animateSpeed/1.5);
 						});
 					});
 				}, function() {
