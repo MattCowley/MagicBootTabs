@@ -184,6 +184,7 @@ if (typeof jQuery != 'undefined') {
 			//Begin - Set Original Values
 			$magicLine
 				.width($(".active").width())
+				.height(4)
 				.css("left", $(".active a").position().left)
 				.css("zIndex", -1)
 				.data("origLeft", $magicLine.position().left)
@@ -237,7 +238,7 @@ if (typeof jQuery != 'undefined') {
 					newWidth = $el.parent().width();
 					newHeight = $el.parent().height();
 					$magicLine.stop().animate({
-						height: 2
+						height: 4
 					}, animateSpeed, function() {
 						$magicLine.stop().animate({
 							left: leftPos,
@@ -250,7 +251,7 @@ if (typeof jQuery != 'undefined') {
 					});
 				}, function() {
 					$magicLine.stop().animate({
-						height: 2
+						height: 4
 					}, animateSpeed, function() {
 						$magicLine.stop().animate({
 							left: $magicLine.data("origLeft"),
@@ -270,7 +271,7 @@ if (typeof jQuery != 'undefined') {
 					newWidth = $el.parent().width();
 					newHeight = $el.parent().height();
 					$magicLine.stop().animate({
-						height: 2
+						height: 4
 					}, animateSpeed, function() {
 						$magicLine.stop().animate({
 							left: leftPos,
