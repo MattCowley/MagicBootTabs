@@ -131,9 +131,10 @@
 				<pre>
 &lt;script&gt;
 	$("#magicBootTabsDemo").magicBootTab({
-		lnColor: "#ff0000", 	//The Color Of The Magic Line, Defaults to #4183D7 if not set
-		acColor: "#0000ff", 	//The Color Of The Active Tab Text, Defaults to #4183D7 if not set
-		speed: 300 		//The Speed Of The Magic Line Movement, Defaults to 400 if not set
+		lnColor: "#ff0000", 	//Magic Line Color - Default #4144FF
+		acColor: "#0000ff", 	//Active Tab Color - Default #4183D7
+		speed: 300, 		//Animation Speed (Speed of Line & BG) - Default 400
+		advanced: true, 	//Advanced Animation Mode (Tab Link Background) - Default false
 	});
 &lt;/script&gt;
 				</pre>
@@ -142,13 +143,14 @@
 
 	<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 	<script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-	<script type='text/javascript' src="../jquery.magicBootTabs.js"></script>
+	<script type='text/javascript' src="//rawgit.com/MattCowley/MagicBootTabs/master/src/jquery.magicBootTabs.js?v=1.05"></script>
 
 	<script>
 		$("#magicBootTabsDemo").magicBootTab({
-			lnColor: "#e67e22",
+			lnColor: "#667eff",
 			acColor: "#e67e22",
-			speed: 400
+			speed: 400,
+			advanced: true
 		});
 	</script>
 

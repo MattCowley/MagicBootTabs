@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.10";
+var magicBootTabsVersion = "1.11";
 
 // Colored Console Logging Function
 function consolelog(message) {
@@ -86,7 +86,7 @@ if (typeof jQuery != 'undefined') {
 
 			// Check If Line Color Is Defined
 			linecolorDef = typeof options.lnColor !== 'undefined' ? true : false;
-			linecolor = typeof options.lnColor !== 'undefined' ? options.lnColor : "#4183D7";
+			linecolor = typeof options.lnColor !== 'undefined' ? options.lnColor : "#4144FF";
 
 			// Check If Active Color Is Defined
 			activecolorDef = typeof options.acColor !== 'undefined' ? true : false;
