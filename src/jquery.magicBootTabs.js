@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.11";
+var magicBootTabsVersion = "1.12";
 
 // Colored Console Logging Function
 function consolelog(message) {
@@ -227,7 +227,7 @@ if (typeof jQuery != 'undefined') {
 				//Set Org Height
 				$magicLine.stop().animate({
 					height: $tabId.find("li.active").height()
-				}, animateSpeed/3, function() {
+				}, animateSpeed/1.5, function() {
 					$magicLine.data("origHeight", $magicLine.height());
 				});
 
@@ -239,11 +239,11 @@ if (typeof jQuery != 'undefined') {
 					newHeight = $el.parent().height();
 					$magicLine.stop().animate({
 						height: 3
-					}, animateSpeed/3, function() {
+					}, animateSpeed/1.5, function() {
 						$magicLine.stop().animate({
 							left: leftPos,
 							width: newWidth
-						}, animateSpeed/3, function() {
+						}, animateSpeed/1.5, function() {
 							$magicLine.stop().animate({
 								height: newHeight
 							}, animateSpeed/3);
@@ -252,14 +252,14 @@ if (typeof jQuery != 'undefined') {
 				}, function() {
 					$magicLine.stop().animate({
 						height: 3
-					}, animateSpeed/3, function() {
+					}, animateSpeed/1.5, function() {
 						$magicLine.stop().animate({
 							left: $magicLine.data("origLeft"),
 							width: $magicLine.data("origWidth")
-						}, animateSpeed/3, function() {
+						}, animateSpeed/1.5, function() {
 							$magicLine.stop().animate({
 								height: $magicLine.data("origHeight")
-							}, animateSpeed/3);
+							}, animateSpeed/1.5);
 						});
 					});
 				});
@@ -272,14 +272,14 @@ if (typeof jQuery != 'undefined') {
 					newHeight = $el.parent().height();
 					$magicLine.stop().animate({
 						height: 3
-					}, animateSpeed/3, function() {
+					}, animateSpeed/1.5, function() {
 						$magicLine.stop().animate({
 							left: leftPos,
 							width: newWidth
-						}, animateSpeed/3, function() {
+						}, animateSpeed/1.5, function() {
 							$magicLine.stop().animate({
 								height: newHeight
-							}, animateSpeed/3, function() {
+							}, animateSpeed/1.5, function() {
 								$magicLine
 									.width($el.parent().width())
 									.css("left", $el.position().left)
