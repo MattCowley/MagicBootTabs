@@ -224,7 +224,7 @@ if (typeof jQuery != 'undefined') {
 				//Set Org Height
 				$magicLine
 					.stop().animate({
-						height: $tabId.find("li.active").height();
+						height: $tabId.find("li.active").height()
 					}, animateSpeed)
 					.data("origHeight", $magicLine.height());
 
