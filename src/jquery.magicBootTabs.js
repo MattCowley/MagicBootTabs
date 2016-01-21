@@ -184,42 +184,109 @@ if (typeof jQuery != 'undefined') {
 			//Begin - Set Original Values
 			$magicLine
 				.width($(".active").width())
-				.height(2)
 				.css("left", $(".active a").position().left)
 				.data("origLeft", $magicLine.position().left)
 				.data("origWidth", $magicLine.width());
 
-			//Hover Event
-			$tabId.find("li a").hover(function() {
-				$el = $(this);
-				leftPos = $el.position().left;
-				newWidth = $el.parent().width();
-				$magicLine.stop().animate({
-					left: leftPos,
-					width: newWidth
-				}, animateSpeed);
-			}, function() {
-				$magicLine.stop().animate({
-					left: $magicLine.data("origLeft"),
-					width: $magicLine.data("origWidth")
-				}, animateSpeed);
-			});
-
-			//Click Event
-			$tabId.find("li a").click(function() {
-				$el = $(this);
-				leftPos = $el.position().left
-				newWidth = $el.parent().width();
-				$magicLine
-					.stop().animate({
+			if (!advAnimation) {
+				//Hover Event
+				$tabId.find("li a").hover(function() {
+					$el = $(this);
+					leftPos = $el.position().left;
+					newWidth = $el.parent().width();
+					$magicLine.stop().animate({
 						left: leftPos,
 						width: newWidth
+					}, animateSpeed);
+				}, function() {
+					$magicLine.stop().animate({
+						left: $magicLine.data("origLeft"),
+						width: $magicLine.data("origWidth")
+					}, animateSpeed);
+				});
+
+				//Click Event
+				$tabId.find("li a").click(function() {
+					$el = $(this);
+					leftPos = $el.position().left
+					newWidth = $el.parent().width();
+					$magicLine
+						.stop().animate({
+							left: leftPos,
+							width: newWidth
+						}, animateSpeed)
+						.width($el.parent().width())
+						.css("left", $el.position().left)
+						.data("origLeft", $magicLine.position().left)
+						.data("origWidth", $magicLine.width());
+				});
+			} else {
+				//Set Org Height
+				$magicLine
+					.stop().animate({
+						height: $tabId.find("li.active").height();
 					}, animateSpeed)
-					.width($el.parent().width())
-					.css("left", $el.position().left)
-					.data("origLeft", $magicLine.position().left)
-					.data("origWidth", $magicLine.width());
-			});
+					.data("origHeight", $magicLine.height());
+
+				//Hover Event
+				$tabId.find("li a").hover(function() {
+					$el = $(this);
+					leftPos = $el.position().left;
+					newWidth = $el.parent().width();
+					newHeight = $el.parent().height();
+					$magicLine.stop().animate({
+						height: 0
+					}, animateSpeed, function() {
+						$magicLine.stop().animate({
+							left: leftPos,
+							width: newWidth
+						}, animateSpeed, function() {
+							$magicLine.stop().animate({
+								height: newHeight
+							}, animateSpeed);
+						});
+					});
+				}, function() {
+					$magicLine.stop().animate({
+						height: 0
+					}, animateSpeed, function() {
+						$magicLine.stop().animate({
+							left: $magicLine.data("origLeft"),
+							width: $magicLine.data("origWidth")
+						}, animateSpeed, function() {
+							$magicLine.stop().animate({
+								height: $magicLine.data("origHeight")
+							}, animateSpeed);
+						});
+					});
+				});
+
+				//Click Event
+				$tabId.find("li a").click(function() {
+					$el = $(this);
+					leftPos = $el.position().left
+					newWidth = $el.parent().width();
+					newHeight = $el.parent().height();
+					$magicLine.stop().animate({
+						height: 0
+					}, animateSpeed, function() {
+						$magicLine.stop().animate({
+							left: leftPos,
+							width: newWidth
+						}, animateSpeed, function() {
+							$magicLine.stop().animate({
+								height: newHeight
+							}, animateSpeed, function() {
+								$magicLine
+									.width($el.parent().width())
+									.css("left", $el.position().left)
+									.data("origLeft", $magicLine.position().left)
+									.data("origHeight", $magicLine.height())
+									.data("origWidth", $magicLine.width());
+							});
+						});	
+				});
+			}
 
 			// Return JQuery Selector For Function Chaining
 			return this;
