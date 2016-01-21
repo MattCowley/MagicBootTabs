@@ -1,0 +1,49 @@
+/*
+ * MagicBootTabs
+ * A nice way of styling and using Bootstrap tabs for content
+ *
+ * Author: Unreal Designs <contact@unreal-designs.co.uk>
+ * Copyright: Unreal Designs 2015
+*/
+
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  height: 41px;
+}
+.nav-tabs li {
+  margin-bottom: 0;
+  position: initial;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+  border-width: 0;
+}
+.nav-tabs > li > a {
+  border: none;
+  color: #999;
+  margin: 0;
+}
+.nav-tabs > li.active > a {
+  border: none;
+  color: #4183D7;
+  background: transparent;
+}
+.nav-tabs > li > a:hover {
+  border: none;
+  background: transparent;
+}
+.tab-content {
+  padding: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#magic-line {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100px;
+  height: 2px;
+  background: #4183D7;
+}
