@@ -65,10 +65,10 @@ if (typeof jQuery != 'undefined') {
 		css.attr({
 			rel: "stylesheet",
 			type: "text/css",
-			href: "//rawgithub.com/MattCowley/MagicBootTabs/master/jquery.magicBootTabs.css"
+			href: "//rawgithub.com/MattCowley/MagicBootTabs/master/src/jquery.magicBootTabs.css"
 		});
 
-		// Create Style Tag For MagicTab Colors
+		// Create Style Tag For MagicBootTab Colors
 		$("head").append("<style></style>");
 		var styles = $("head").children(":last");
 		styles.attr({
@@ -81,7 +81,7 @@ if (typeof jQuery != 'undefined') {
 			"CSS File Linked In Head, Style Holder Created! -- #6BB9F0"
 		));
 
-		// Begin magicTab JQuery Function
+		// Begin magicBootTab JQuery Function
 		$.fn.magicBootTab = function(options) {
 
 			// Check If Line Color Is Defined
