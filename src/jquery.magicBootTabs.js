@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.07";
+var magicBootTabsVersion = "1.08";
 
 // Colored Console Logging Function
 function consolelog(message) {
@@ -185,6 +185,7 @@ if (typeof jQuery != 'undefined') {
 			$magicLine
 				.width($(".active").width())
 				.css("left", $(".active a").position().left)
+				.css("z-index", $tabId.css("z-index")-10)
 				.data("origLeft", $magicLine.position().left)
 				.data("origWidth", $magicLine.width());
 
@@ -236,7 +237,7 @@ if (typeof jQuery != 'undefined') {
 					newWidth = $el.parent().width();
 					newHeight = $el.parent().height();
 					$magicLine.stop().animate({
-						height: 0
+						height: 2
 					}, animateSpeed, function() {
 						$magicLine.stop().animate({
 							left: leftPos,
@@ -249,7 +250,7 @@ if (typeof jQuery != 'undefined') {
 					});
 				}, function() {
 					$magicLine.stop().animate({
-						height: 0
+						height: 2
 					}, animateSpeed, function() {
 						$magicLine.stop().animate({
 							left: $magicLine.data("origLeft"),
@@ -269,7 +270,7 @@ if (typeof jQuery != 'undefined') {
 					newWidth = $el.parent().width();
 					newHeight = $el.parent().height();
 					$magicLine.stop().animate({
-						height: 0
+						height: 2
 					}, animateSpeed, function() {
 						$magicLine.stop().animate({
 							left: leftPos,
