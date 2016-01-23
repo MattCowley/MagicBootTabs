@@ -134,7 +134,7 @@ if (typeof jQuery != 'undefined') {
 			}
 
 			// Set Custom Colors For MagicBootTab
-			$("head style#magicBootTabsStyles").append(".nav-tabs#" + tabIdAttr + " > li.active > a { color: " + options.acColor + "; z-index: 1 }\n");
+			$("head style#magicBootTabsStyles").append(".nav-tabs#" + tabIdAttr + " > li.active > a { color: " + options.acColor + "; }\n");
 			$("head style#magicBootTabsStyles").append(".nav-tabs#" + tabIdAttr + " > li#magic-line { background: " + options.lnColor + " }\n");
 
 			// Log Tab Info In Console

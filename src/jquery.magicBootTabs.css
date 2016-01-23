@@ -29,6 +29,7 @@
   border: none;
   color: #999;
   margin: 0;
+  z-index: 1;
 }
 .nav-tabs > li.active > a {
   border: none;
