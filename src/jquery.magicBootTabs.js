@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.13";
+var magicBootTabsVersion = "1.14";
 
 // Colored Console Logging Function
 function consolelog(message) {
@@ -85,9 +85,7 @@ if (typeof jQuery != 'undefined') {
 		$.fn.magicBootTab = function(options) {
 
 			//Check Options Is Passed
-			if (typeof(options) == 'undefined') {
-				options = {};
-			}
+			options = options || {};
 
 			// Check If Line Color Is Defined
 			linecolorDef = options.hasOwnProperty('lnColor') ? true : false;
