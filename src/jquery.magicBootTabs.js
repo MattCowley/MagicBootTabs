@@ -84,6 +84,11 @@ if (typeof jQuery != 'undefined') {
 		// Begin magicBootTab JQuery Function
 		$.fn.magicBootTab = function(options) {
 
+			//Check Options Is Passed
+			if (typeof(options) == 'undefined') {
+				options = {};
+			}
+
 			// Check If Line Color Is Defined
 			linecolorDef = options.hasOwnProperty('lnColor') ? true : false;
 			linecolor = options.hasOwnProperty('lnColor') ? options.lnColor : "#4144FF";
