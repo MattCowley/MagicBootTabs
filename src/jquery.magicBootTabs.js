@@ -85,19 +85,19 @@ if (typeof jQuery != 'undefined') {
 		$.fn.magicBootTab = function(options) {
 
 			// Check If Line Color Is Defined
-			linecolorDef = typeof options.lnColor !== 'undefined' ? true : false;
-			linecolor = typeof options.lnColor !== 'undefined' ? options.lnColor : "#4144FF";
+			linecolorDef = options.hasOwnProperty('lnColor') ? true : false;
+			linecolor = options.hasOwnProperty('lnColor') ? options.lnColor : "#4144FF";
 
 			// Check If Active Color Is Defined
-			activecolorDef = typeof options.acColor !== 'undefined' ? true : false;
-			activecolor = typeof options.acColor !== 'undefined' ? options.acColor : "#4183D7";
+			activecolorDef = options.hasOwnProperty('acColor') ? true : false;
+			activecolor = options.hasOwnProperty('acColor') ? options.acColor : "#4183D7";
 
 			// Check If Animate Speed Is Defined
-			animateSpeedDef = typeof options.speed !== 'undefined' ? true : false;
-			animateSpeed = typeof options.speed !== 'undefined' ? options.speed : 400;
+			animateSpeedDef = options.hasOwnProperty('speed') ? true : false;
+			animateSpeed = options.hasOwnProperty('speed') ? options.speed : 400;
 
 			// Check If Advanced Animation Is Defined
-			advAnimation = typeof options.advanced !== 'undefined' ? options.advanced : false;
+			advAnimation = options.hasOwnProperty('advanced') ? options.advanced : false;
 
 			// Create Usable Plugin Variables
 			$tabId = this;
