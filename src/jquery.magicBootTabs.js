@@ -149,7 +149,7 @@ if (typeof jQuery != 'undefined') {
 				.width($(".active").width())
 				.height(3)
 				.css("left", $(".active a").position().left)
-				.css("zIndex", -1)
+				.css("zIndex", 0)
 				.data("origLeft", $magicLine.position().left)
 				.data("origWidth", $magicLine.width());
 
