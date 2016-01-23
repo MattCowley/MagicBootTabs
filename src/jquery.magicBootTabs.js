@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.14";
+var magicBootTabsVersion = "1.15";
 
 // Colored Console Logging Function
 function consolelog(message) {
@@ -87,20 +87,11 @@ if (typeof jQuery != 'undefined') {
 			//Check Options Is Passed
 			options = options || {};
 
-			// Check If Line Color Is Defined
-			linecolorDef = options.hasOwnProperty('lnColor') ? true : false;
-			linecolor = options.hasOwnProperty('lnColor') ? options.lnColor : "#4144FF";
-
-			// Check If Active Color Is Defined
-			activecolorDef = options.hasOwnProperty('acColor') ? true : false;
-			activecolor = options.hasOwnProperty('acColor') ? options.acColor : "#4183D7";
-
-			// Check If Animate Speed Is Defined
-			animateSpeedDef = options.hasOwnProperty('speed') ? true : false;
-			animateSpeed = options.hasOwnProperty('speed') ? options.speed : 400;
-
-			// Check If Advanced Animation Is Defined
-			advAnimation = options.hasOwnProperty('advanced') ? options.advanced : false;
+			// Set Option Defaults If Not Set
+			options.lnColor 	= options.hasOwnProperty('lnColor') 	? options.lnColor 	: "#4144FF";
+			options.acColor 	= options.hasOwnProperty('acColor') 	? options.acColor 	: "#4183D7";
+			options.speed 		= options.hasOwnProperty('speed') 		? options.speed 	: 400;
+			options.advanced 	= options.hasOwnProperty('advanced') 	? options.advanced 	: false;
 
 			// Create Usable Plugin Variables
 			$tabId = this;
@@ -109,57 +100,26 @@ if (typeof jQuery != 'undefined') {
 			var $magicLine = $("#magic-line[magic-tab='" + tabIdAttr + "']");
 		
 			//Create Line Break Before Tab Info
-			consolelog(""); 
+			consolelog("");
 
-			// Set Colours To Each other If One Not Defined, Log Results Of Check
-			if (linecolorDef && !activecolorDef) {
-				consolelog(Array(
-					"Tab -- #F27935",
-					"#" + tabIdAttr + " -- #F27935",
-					"Active Color Not Defined, Using Line Color! -- #6BB9F0"
-				));
-				activecolor = linecolor;
-			} else if (!linecolorDef && activecolorDef) {
-				consolelog(Array(
-					"Tab -- #F27935",
-					"#" + tabIdAttr + " -- #F27935",
-					"Line Color Not Defined, Using Active Color! -- #6BB9F0"
-				));
-				linecolor = activecolor;
-			} else if (!linecolorDef && !activecolorDef) {
-				consolelog(Array(
-					"Tab -- #F27935",
-					"#" + tabIdAttr + " -- #F27935",
-					"Line & Active Colors Not Defined, Using Defaults! -- #6BB9F0"
-				));
-				linecolor = activecolor;
-			} else {
-				consolelog(Array(
-					"Tab -- #F27935",
-					"#" + tabIdAttr + " -- #F27935",
-					"Using Line Color -- #6BB9F0",
-					linecolor + " -- " + linecolor + " -- #fff",
-					", Using Active Color -- #6BB9F0",
-					activecolor + " -- " + activecolor + " -- #fff"
-				));
-			}
+			// Log Basic MagicBootTab Info
+			consolelog(Array(
+				"Tab -- #F27935",
+				"#" + tabIdAttr + " -- #F27935",
+				"Using Line Color -- #6BB9F0",
+				options.lnColor + " -- " + options.lnColor + " -- #fff",
+				", Using Active Color -- #6BB9F0",
+				options.acColor + " -- " + options.acColor + " -- #fff"
+			));
 
-			if (animateSpeedDef) {
-				consolelog(Array(
-					"Tab -- #F27935",
-					"#" + tabIdAttr + " -- #F27935",
-					"Using Animation Speed -- #6BB9F0",
-					animateSpeed + " -- #4183D7" + " -- #fff"
-				));
-			} else {
-				consolelog(Array(
-					"Tab -- #F27935",
-					"#" + tabIdAttr + " -- #F27935",
-					"Animation Speed Not Defined, Using Default! -- #6BB9F0"
-				));
-			}
+			consolelog(Array(
+				"Tab -- #F27935",
+				"#" + tabIdAttr + " -- #F27935",
+				"Using Animation Speed -- #6BB9F0",
+				options.speed + " -- #4183D7" + " -- #fff"
+			));
 
-			if (advAnimation) {
+			if (options.advanced) {
 				consolelog(Array(
 					"Tab -- #F27935",
 					"#" + tabIdAttr + " -- #F27935",
@@ -173,15 +133,15 @@ if (typeof jQuery != 'undefined') {
 				));
 			}
 
-			// Set Custom Colors For MagicTab
-			$("head style#magicBootTabsStyles").append(".nav-tabs#" + tabIdAttr + " > li.active > a { color: " + activecolor + " }\n");
-			$("head style#magicBootTabsStyles").append(".nav-tabs#" + tabIdAttr + " > li#magic-line { background: " + linecolor + " }\n");
+			// Set Custom Colors For MagicBootTab
+			$("head style#magicBootTabsStyles").append(".nav-tabs#" + tabIdAttr + " > li.active > a { color: " + options.acColor + " }\n");
+			$("head style#magicBootTabsStyles").append(".nav-tabs#" + tabIdAttr + " > li#magic-line { background: " + options.lnColor + " }\n");
 
 			// Log Tab Info In Console
 			consolelog(Array(
 				"Tab -- #F27935",
 				"#" + tabIdAttr + " -- #F27935",
-				"MagicTab Created! -- #6BB9F0"
+				"MagicBootTab Created! -- #6BB9F0"
 			));
 
 			//Begin - Set Original Values
@@ -193,7 +153,7 @@ if (typeof jQuery != 'undefined') {
 				.data("origLeft", $magicLine.position().left)
 				.data("origWidth", $magicLine.width());
 
-			if (!advAnimation) {
+			if (!options.advanced) {
 				//Hover Event
 				$tabId.find("li a").hover(function() {
 					$el = $(this);
@@ -202,12 +162,12 @@ if (typeof jQuery != 'undefined') {
 					$magicLine.stop().animate({
 						left: leftPos,
 						width: newWidth
-					}, animateSpeed);
+					}, options.speed);
 				}, function() {
 					$magicLine.stop().animate({
 						left: $magicLine.data("origLeft"),
 						width: $magicLine.data("origWidth")
-					}, animateSpeed);
+					}, options.speed);
 				});
 
 				//Click Event
@@ -218,7 +178,7 @@ if (typeof jQuery != 'undefined') {
 					$magicLine.stop().animate({
 						left: leftPos,
 						width: newWidth
-					}, animateSpeed, function() {
+					}, options.speed, function() {
 						$magicLine
 							.width($el.parent().width())
 							.css("left", $el.position().left)
@@ -230,7 +190,7 @@ if (typeof jQuery != 'undefined') {
 				//Set Org Height
 				$magicLine.stop().animate({
 					height: $tabId.find("li.active").height()
-				}, animateSpeed/1.5, function() {
+				}, options.speed/1.5, function() {
 					$magicLine.data("origHeight", $magicLine.height());
 				});
 
@@ -242,27 +202,27 @@ if (typeof jQuery != 'undefined') {
 					newHeight = $el.parent().height();
 					$magicLine.stop().animate({
 						height: 3
-					}, animateSpeed/1.5, function() {
-						$magicLine.stop().animate({
+					}, options.speed/1.5, function() {
+						$magicLine.animate({
 							left: leftPos,
 							width: newWidth
-						}, animateSpeed/1.5, function() {
-							$magicLine.stop().animate({
+						}, options.speed/1.5, function() {
+							$magicLine.animate({
 								height: newHeight
-							}, animateSpeed/1.5);
+							}, options.speed/1.5);
 						});
 					});
 				}, function() {
 					$magicLine.stop().animate({
 						height: 3
-					}, animateSpeed/1.5, function() {
-						$magicLine.stop().animate({
+					}, options.speed/1.5, function() {
+						$magicLine.animate({
 							left: $magicLine.data("origLeft"),
 							width: $magicLine.data("origWidth")
-						}, animateSpeed/1.5, function() {
-							$magicLine.stop().animate({
+						}, options.speed/1.5, function() {
+							$magicLine.animate({
 								height: $magicLine.data("origHeight")
-							}, animateSpeed/1.5);
+							}, options.speed/1.5);
 						});
 					});
 				});
@@ -275,14 +235,14 @@ if (typeof jQuery != 'undefined') {
 					newHeight = $el.parent().height();
 					$magicLine.stop().animate({
 						height: 3
-					}, animateSpeed/1.5, function() {
-						$magicLine.stop().animate({
+					}, options.speed/1.5, function() {
+						$magicLine.animate({
 							left: leftPos,
 							width: newWidth
-						}, animateSpeed/1.5, function() {
-							$magicLine.stop().animate({
+						}, options.speed/1.5, function() {
+							$magicLine.animate({
 								height: newHeight
-							}, animateSpeed/1.5, function() {
+							}, options.speed/1.5, function() {
 								$magicLine
 									.width($el.parent().width())
 									.css("left", $el.position().left)
