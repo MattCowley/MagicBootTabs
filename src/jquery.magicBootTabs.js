@@ -90,8 +90,8 @@ if (typeof jQuery != 'undefined') {
 			// Set Option Defaults If Not Set
 			options.lnColor 	= options.hasOwnProperty('lnColor') 	? options.lnColor 	: "#4144FF";
 			options.acColor 	= options.hasOwnProperty('acColor') 	? options.acColor 	: "#4183D7";
-			options.speed 		= options.hasOwnProperty('speed') 		? options.speed 	: 400;
-			options.advanced 	= options.hasOwnProperty('advanced') 	? options.advanced 	: false;
+			options.speed 		= options.hasOwnProperty('speed') 	? options.speed 	: 400;
+			options.advAnimation 	= options.hasOwnProperty('advAnimation') 	? options.advAnimation 	: false;
 
 			// Create Usable Plugin Variables
 			$tabId = this;
@@ -119,7 +119,7 @@ if (typeof jQuery != 'undefined') {
 				options.speed + " -- #4183D7" + " -- #fff"
 			));
 
-			if (options.advanced) {
+			if (options.advAnimation) {
 				consolelog(Array(
 					"Tab -- #F27935",
 					"#" + tabIdAttr + " -- #F27935",
@@ -153,7 +153,7 @@ if (typeof jQuery != 'undefined') {
 				.data("origLeft", $magicLine.position().left)
 				.data("origWidth", $magicLine.width());
 
-			if (!options.advanced) {
+			if (!options.advAnimation) {
 				//Hover Event
 				$tabId.find("li a").hover(function() {
 					$el = $(this);
