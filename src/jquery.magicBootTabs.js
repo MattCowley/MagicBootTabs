@@ -7,19 +7,17 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.19";
+var magicBootTabsVersion = "1.20";
 
 // Colored Console Logging Function
-var console=(function(oldCons){
-    return {
-        log: function(text){
-            consolelog(text);
-        },
-        oldLog: function(text){
-            oldCons.log(text);
+(function(){
+    if(window.console && console.log){
+        var old = console.log;
+        console.log = function(){
+            old.apply(this, consolelog(arguments));
         }
-    };
-}(window.console));
+    }  
+})();
 
 function consolelog(message) {
 	if (message != "") {
@@ -48,9 +46,9 @@ function consolelog(message) {
 			arguments.push(styles[index]);
 		}
 
-		console.oldLog.apply(console, arguments);
+		return arguments;
 	} else {
-		originalConsole.oldLog("");
+		return "";
 	}
 }
 
