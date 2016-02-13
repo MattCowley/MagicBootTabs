@@ -43,7 +43,7 @@ function consolelog(message) {
 		messages.push("%cMagicBootTabs");
 		styles.push("background: #222; color: #bada55;");
 			
-		console.orgLog(args);
+		console.orgLog(message);
 
 		for (index = 0; index < message.length; ++index) {
 			args = message[index];
