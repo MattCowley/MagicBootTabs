@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.29";
+var magicBootTabsVersion = "1.30";
 
 // Colored Console Logging Function
 (function() {
@@ -15,8 +15,7 @@ var magicBootTabsVersion = "1.29";
 	console['orgLog'] = function() {
 		if (original.apply){
             // Do this for normal browsers
-            arguments.unshift("Debug: ")
-            original.apply(console, arguments)
+            original.apply(console, "Debug: " + arguments)
         }else{
             // Do this for IE
             var message = "Debug: " + Array.prototype.slice.apply(arguments).join(' ')
