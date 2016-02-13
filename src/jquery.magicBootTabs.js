@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.47";
+var magicBootTabsVersion = "1.48";
 
 // Colored Console Logging Function
 (function() {
@@ -52,6 +52,7 @@ function colorConsole(title, titlecolor, bgcolor, message) {
 		styles.push("background: "+bgcolor+"; color: "+titlecolor+";");
 
 		for (index = 0; index < message.length; ++index) {
+			args = message[index];
 			msg = args[0].trim();
 			color = args[1].trim();
 			if (args.length == 3) {
