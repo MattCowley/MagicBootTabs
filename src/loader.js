@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.10";
+var LoaderVersion = "1.11";
 
 function loader(items, loadedCallback) {
 	var itemURLS = {
@@ -23,6 +23,9 @@ function loader(items, loadedCallback) {
 
 	function loadItem(url, type, callback) {
 	    var head = document.getElementsByTagName('head')[0];
+
+	    console.log(url);
+	    console.log(type);
 
 	    if (type == "script") {
 		    var item = document.createElement('script');
