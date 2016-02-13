@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.46";
+var magicBootTabsVersion = "1.47";
 
 // Colored Console Logging Function
 (function() {
@@ -35,12 +35,15 @@ var magicBootTabsVersion = "1.46";
 }());
 
 function colorConsole(title, titlecolor, bgcolor, message) {
+	console.orgLog(message);
 	if ( message !== null && typeof message === 'object' ) {
 		message = message[0];
 	}
+	console.orgLog(message);
 	if (message.length == 1) {
 		message = message[0]
 	}
+	console.orgLog(message);
 	if (message instanceof Array) {
 		var messages = Array();
 		var styles = Array();
@@ -80,7 +83,7 @@ if (typeof jQuery != 'undefined') {
 
 		// Log - Plugin Loaded And Version In Console
 		console.log(Array(
-			Array("A magical way of styling and using Bootstrap tabs for content.", "#6BB9F0");
+			Array("A magical way of styling and using Bootstrap tabs for content.", "#6BB9F0")
 		));
 		console.log(Array(
 			Array("Version", "#6BB9F0"),
