@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.08";
+var LoaderVersion = "1.09";
 
 function loader(scripts, loadedCallback) {
 	var scriptURLS = {
@@ -15,8 +15,8 @@ function loader(scripts, loadedCallback) {
 		"MagicBootTabs": Array("script", "//rawgit.com/MattCowley/MagicBootTabs/master/src/jquery.magicBootTabs.js"),
 		"jQuery": Array("script", "//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"),
 		"bootStrapJS": Array("script", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"),
-		"bootStrapCSS": Array("style", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")
-		"bootSwatchSuperhero": Array("style", "//bootswatch.com/superhero/bootstrap.css")
+		"bootStrapCSS": Array("style", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"),
+		"bootSwatchSuperhero": Array("style", "//bootswatch.com/superhero/bootstrap.css"),
 	}
 
 	var scriptCount = scripts.length;
