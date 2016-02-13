@@ -7,8 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.37";
-var displayargs = {};
+var magicBootTabsVersion = "1.38";
 
 // Colored Console Logging Function
 (function() {
@@ -16,11 +15,10 @@ var displayargs = {};
 	console['orgLog'] = function() {
 		if (original.apply){
             // Do this for normal browsers
-            displayargs = arguments
             original.apply(console, arguments)
         }else{
             // Do this for IE
-            var message = "Debug: " + Array.prototype.slice.apply(arguments).join(' ')
+            var message = Array.prototype.slice.apply(arguments).join(' ')
             original(message)
         }
     }
@@ -37,24 +35,18 @@ var displayargs = {};
 }());
 
 function consolelog(message) {
-	if (message != "") {
+	if ( message !== null && typeof message === 'object' ) {
+		message = message[0];
+	}
+	if (message != "" && message instanceof Array) {
 		var messages = Array();
 		var styles = Array();
 
 		messages.push("%cMagicBootTabs");
 		styles.push("background: #222; color: #bada55;");
 
-		message = message[0];
-			
-		console.orgLog(message);
-
 		for (index = 0; index < message.length; ++index) {
-			args = message[index];
-
-			console.orgLog(args);
-			console.orgLog(typeof args);
-
-			args = args.split(" -- ");
+			args = message[index].split(" -- ");
 			msg = args[0].trim();
 			color = args[1].trim();
 			if (args.length == 3) {
@@ -74,7 +66,7 @@ function consolelog(message) {
 
 		return arguments;
 	} else {
-		return "";
+		return message;
 	}
 }
 
@@ -85,10 +77,10 @@ if (typeof jQuery != 'undefined') {
 	if (typeof($.fn.tab) != 'undefined') {
 
 		// Log - Plugin Loaded And Version In Console
-		consolelog(Array(
+		console.log(Array(
 			"A magical way of styling and using Bootstrap tabs for content. -- #6BB9F0"
 		));
-		consolelog(Array(
+		console.log(Array(
 			"Version -- #6BB9F0",
 			magicBootTabsVersion + " -- #F27935",
 			"Loaded! -- #6BB9F0"
@@ -112,7 +104,7 @@ if (typeof jQuery != 'undefined') {
 		});
 
 		// Log Styles Loaded In Console
-		consolelog(Array(
+		console.log(Array(
 			"CSS File Linked In Head, Style Holder Created! -- #6BB9F0"
 		));
 
@@ -135,10 +127,10 @@ if (typeof jQuery != 'undefined') {
 			var $magicLine = $("#magic-line[magic-tab='" + tabIdAttr + "']");
 		
 			//Create Line Break Before Tab Info
-			consolelog("");
+			console.log("");
 
 			// Log Basic MagicBootTab Info
-			consolelog(Array(
+			console.log(Array(
 				"Tab -- #F27935",
 				"#" + tabIdAttr + " -- #F27935",
 				"Using Line Color -- #6BB9F0",
@@ -147,7 +139,7 @@ if (typeof jQuery != 'undefined') {
 				options.acColor + " -- " + options.acColor + " -- #fff"
 			));
 
-			consolelog(Array(
+			console.log(Array(
 				"Tab -- #F27935",
 				"#" + tabIdAttr + " -- #F27935",
 				"Using Animation Speed -- #6BB9F0",
@@ -155,13 +147,13 @@ if (typeof jQuery != 'undefined') {
 			));
 
 			if (options.advAnimation) {
-				consolelog(Array(
+				console.log(Array(
 					"Tab -- #F27935",
 					"#" + tabIdAttr + " -- #F27935",
 					"Advanced Animation Mode Enabled -- #6BB9F0"
 				));
 			} else {
-				consolelog(Array(
+				console.log(Array(
 					"Tab -- #F27935",
 					"#" + tabIdAttr + " -- #F27935",
 					"Advanced Animation Mode Disabled -- #6BB9F0"
@@ -173,7 +165,7 @@ if (typeof jQuery != 'undefined') {
 			$("head style#magicBootTabsStyles").append(".nav-tabs#" + tabIdAttr + " > li#magic-line { background: " + options.lnColor + " }\n");
 
 			// Log Tab Info In Console
-			consolelog(Array(
+			console.log(Array(
 				"Tab -- #F27935",
 				"#" + tabIdAttr + " -- #F27935",
 				"MagicBootTab Created! -- #6BB9F0"
@@ -298,7 +290,7 @@ if (typeof jQuery != 'undefined') {
 	} else {
 
 		// Log Bootstrap JS Error In Console
-		consolelog(Array(
+		console.log(Array(
 			"Plugin Requires Bootstrap 3 (JS - Tabs)! -- #F53C2B"
 		));
 	}
@@ -306,7 +298,7 @@ if (typeof jQuery != 'undefined') {
 } else {
 
 	// Log JQuery Error In Console
-	consolelog(Array(
+	console.log(Array(
 		"Plugin Requires JQuery! -- #F53C2B"
 	));
 }
