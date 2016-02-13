@@ -7,9 +7,9 @@
  */
 
 //Declare Version
-var colorConsoleVersion = "1.01";
+var colorConsoleVersion = "1.02";
 
-function captureConsole(title, titlecolor, bgcolor) {
+function colorConsole(title, titlecolor, bgcolor) {
 	var original = console['log'];
 	console['orgLog'] = function() {
 		if (original.apply){
@@ -24,7 +24,7 @@ function captureConsole(title, titlecolor, bgcolor) {
 	console['log'] = function() {
 		if (original.apply){
             // Do this for normal browsers
-            original.apply(console, colorConsole(title, titlecolor, bgcolor, arguments))
+            original.apply(console, colorConsoleGet(title, titlecolor, bgcolor, arguments))
         }else{
             // Do this for IE
             var message = Array.prototype.slice.apply(arguments).join(' ')
@@ -33,7 +33,7 @@ function captureConsole(title, titlecolor, bgcolor) {
 	}
 }
 
-function colorConsole(title, titlecolor, bgcolor, message) {
+function colorConsoleGet(title, titlecolor, bgcolor, message) {
 	if ( message !== null && typeof message === 'object' ) {
 		message = message[0];
 	}
