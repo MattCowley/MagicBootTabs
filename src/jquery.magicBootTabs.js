@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.44";
+var magicBootTabsVersion = "1.45";
 
 // Colored Console Logging Function
 (function() {
@@ -21,22 +21,20 @@ var magicBootTabsVersion = "1.44";
             var message = Array.prototype.slice.apply(arguments).join(' ')
             original(message)
         }
-        return "";
     }
 	console['log'] = function() {
 		if (original.apply){
             // Do this for normal browsers
-            original.apply(console, consolelog(arguments))
+            original.apply(console, colorConsole("MagicBootTabs", "#bada55", "#222", arguments))
         }else{
             // Do this for IE
             var message = Array.prototype.slice.apply(arguments).join(' ')
             original(message)
         }
-        return "";
 	}
 }());
 
-function consolelog(message) {
+function colorConsole(title, titlecolor, bgcolor, message) {
 	if ( message !== null && typeof message === 'object' ) {
 		message = message[0];
 	}
@@ -47,8 +45,8 @@ function consolelog(message) {
 		var messages = Array();
 		var styles = Array();
 
-		messages.push("%cMagicBootTabs");
-		styles.push("background: #222; color: #bada55;");
+		messages.push("%c"+title);
+		styles.push("background: "+bgcolor+"; color: "+titlecolor+";");
 
 		for (index = 0; index < message.length; ++index) {
 			args = message[index].split(" -- ");
@@ -57,7 +55,7 @@ function consolelog(message) {
 			if (args.length == 3) {
 				bg = args[2].trim();
 			} else {
-				bg = "#222";
+				bg = bgcolor;
 			}
 			messages.push(" %c" + msg);
 			styles.push("background: " + bg + "; color: " + color);
