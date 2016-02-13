@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.21";
+var LoaderVersion = "1.22";
 
 var urlscript = document.currentScript || (function() {
     var scripts = document.getElementsByTagName("script");
@@ -30,6 +30,7 @@ function loader(items, loadedCallback) {
 		"bootSwatchSuperhero": Array("style", "//bootswatch.com/superhero/bootstrap.css"),
 		"bootSwatchDarkly": Array("style", "//bootswatch.com/darkly/bootstrap.css"),
 		"bootSwatchJournal": Array("style", "//bootswatch.com/journal/bootstrap.css"),
+		"bootSwatchLumen": Array("style", "//bootswatch.com/lumen/bootstrap.css"),
 	}
 
 	var itemCount = items.length;
@@ -56,11 +57,15 @@ function loader(items, loadedCallback) {
 	}
 	function loadNext(index) {
 		if (index < itemCount) {
-			loadItem(
-				itemURLS[items[index]][1],
-				itemURLS[items[index]][0],
-				function(){ loadNext(index+1); }
-			);
+			if (itemURLS[items[index]] != null) {
+				loadItem(
+					itemURLS[items[index]][1],
+					itemURLS[items[index]][0],
+					function(){ loadNext(index+1); }
+				);
+			} else {
+				loadNext(index+1);
+			}
 		} else {
 			loadedCallback();
 			urlscript.remove();
