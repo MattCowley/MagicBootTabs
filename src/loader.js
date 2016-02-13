@@ -7,12 +7,14 @@
  */
 
 //Declare Version
-var MBTCCLoaderVersion = "1.05";
+var LoaderVersion = "1.06";
 
 function loader(scripts, loadedCallback) {
 	var scriptURLS = {
 		"colorConsole": "//rawgit.com/MattCowley/MagicBootTabs/master/src/colorConsole.js",
-		"MagicBootTabs": "//rawgit.com/MattCowley/MagicBootTabs/master/src/jquery.magicBootTabs.js"
+		"MagicBootTabs": "//rawgit.com/MattCowley/MagicBootTabs/master/src/jquery.magicBootTabs.js",
+		"jQuery": "//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js",
+		"bootStrap": "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
 	}
 
 	var scriptCount = scripts.length;
