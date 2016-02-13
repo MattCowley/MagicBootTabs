@@ -7,9 +7,12 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.15";
+var LoaderVersion = "1.16";
 
 function loader(items, loadedCallback) {
+	var target = event.target || event.srcElement;
+	console.log(target);
+
 	var itemURLS = {
 		"colorConsole": Array("script", "//rawgit.com/MattCowley/MagicBootTabs/master/src/colorConsole.js"),
 		"MagicBootTabs": Array("script", "//rawgit.com/MattCowley/MagicBootTabs/master/src/jquery.magicBootTabs.js"),
@@ -50,8 +53,6 @@ function loader(items, loadedCallback) {
 			);
 		} else {
 			loadedCallback();
-			var target = event.target || event.srcElement;
-			console.log(target);
 		}
 	}
 	loadNext(0);
