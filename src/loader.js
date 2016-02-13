@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.11";
+var LoaderVersion = "1.12";
 
 function loader(items, loadedCallback) {
 	var itemURLS = {
@@ -23,9 +23,6 @@ function loader(items, loadedCallback) {
 
 	function loadItem(url, type, callback) {
 	    var head = document.getElementsByTagName('head')[0];
-
-	    console.log(url);
-	    console.log(type);
 
 	    if (type == "script") {
 		    var item = document.createElement('script');
@@ -47,8 +44,8 @@ function loader(items, loadedCallback) {
 	function loadNext(index) {
 		if (index < itemCount) {
 			loadItem(
-				itemURLS[items[index][1]],
-				itemURLS[items[index][0]],
+				itemURLS[items[index]][1],
+				itemURLS[items[index]][0],
 				function(){ loadNext(index+1); }
 			);
 		} else {
