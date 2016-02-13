@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var MBTCCLoaderVersion = "1.04";
+var MBTCCLoaderVersion = "1.05";
 
 function loader(scripts, loadedCallback) {
 	var scriptURLS = {
@@ -39,7 +39,6 @@ function loader(scripts, loadedCallback) {
 				function(){ loadNext(index+1); }
 			);
 		} else {
-			console.log("Scripts Loaded");
 			loadedCallback();
 		}
 	}
