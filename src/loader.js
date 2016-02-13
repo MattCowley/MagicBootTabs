@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var MBTCCLoaderVersion = "1.01";
+var MBTCCLoaderVersion = "1.02";
 
 function loader(scripts, loadedCallback) {
 	var scriptURLS = {
@@ -16,7 +16,6 @@ function loader(scripts, loadedCallback) {
 	}
 
 	var scriptCount = scripts.length;
-	var loadedCount = 0;
 
 	function loadScript(url, callback) {
 	    // Adding the script tag to the head as suggested before
@@ -33,15 +32,16 @@ function loader(scripts, loadedCallback) {
 	    // Fire the loading
 	    head.appendChild(script);
 	}
-	function countAdd(script) {
-		loadedCount += 1
-		if (scriptCount == loadedCount) {
+	function loadNext(index) {
+		if (index < scriptCount) {
+			loadScript(
+				scriptURLS[scripts[index]],
+				function(){ loadNext(index+1); }
+			);
+		} else {
 			loadedCallback;
 		}
 	}
-
-	for (index = 0; index < scripts.length; ++index) {
-    	loadScript(scriptURLS[scripts[index]], function(){ countAdd(scripts[index]); });
-	}
+	loadNext(0);
 
 }
