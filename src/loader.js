@@ -1,6 +1,6 @@
 /*
- * MagicBootTabs & colorConsole Loader
- * Quickly Load Scripts Required
+ * Item Loader
+ * Quickly Load Scripts & Styles Required
  *
  * Author: Unreal Designs <contact@unreal-designs.co.uk>
  * Copyright: Unreal Designs 2015
@@ -9,8 +9,8 @@
 //Declare Version
 var LoaderVersion = "1.09";
 
-function loader(scripts, loadedCallback) {
-	var scriptURLS = {
+function loader(items, loadedCallback) {
+	var itemURLS = {
 		"colorConsole": Array("script", "//rawgit.com/MattCowley/MagicBootTabs/master/src/colorConsole.js"),
 		"MagicBootTabs": Array("script", "//rawgit.com/MattCowley/MagicBootTabs/master/src/jquery.magicBootTabs.js"),
 		"jQuery": Array("script", "//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"),
@@ -19,9 +19,9 @@ function loader(scripts, loadedCallback) {
 		"bootSwatchSuperhero": Array("style", "//bootswatch.com/superhero/bootstrap.css"),
 	}
 
-	var scriptCount = scripts.length;
+	var itemCount = items.length;
 
-	function load(url, type, callback) {
+	function loadItem(url, type, callback) {
 	    var head = document.getElementsByTagName('head')[0];
 	    var item;
 
@@ -41,10 +41,10 @@ function loader(scripts, loadedCallback) {
 	    head.appendChild(item);
 	}
 	function loadNext(index) {
-		if (index < scriptCount) {
-			loadScript(
-				scriptURLS[scripts[index][1]],
-				scriptURLS[scripts[index][0]],
+		if (index < itemCount) {
+			loadItem(
+				itemURLS[items[index][1]],
+				itemURLS[items[index][0]],
 				function(){ loadNext(index+1); }
 			);
 		} else {
