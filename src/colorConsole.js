@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var colorConsoleVersion = "1.05";
+var colorConsoleVersion = "1.06";
 
 function colorConsole() {
 	var original = console['log'];
@@ -33,7 +33,7 @@ function colorConsole() {
 	}
 	console.log(Array(
 		Array("color", "#FF3B30"),
-		Array("Console" "#0BD318"),
+		Array("Console", "#0BD318"),
 		Array("Loaded and Ready (V "+colorConsoleVersion+")", "#6BB9F0")
 	));
 }

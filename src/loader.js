@@ -12,7 +12,7 @@ var MBTCCLoaderVersion = "1.01";
 function loader(scripts, loadedCallback) {
 	var scriptURLS = {
 		"colorConsole": "//rawgit.com/MattCowley/MagicBootTabs/master/src/colorConsole.js",
-		"MagicBootTabs": "//rawgit.com/MattCowley/MagicBootTabs/master/src/jquery.MagicBootTabs.js"
+		"MagicBootTabs": "//rawgit.com/MattCowley/MagicBootTabs/master/src/jquery.magicBootTabs.js"
 	}
 
 	var scriptCount = scripts.length;
