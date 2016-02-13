@@ -7,9 +7,9 @@
  */
 
 //Declare Version
-var colorConsoleVersion = "1.04";
+var colorConsoleVersion = "1.05";
 
-function colorConsole(title, titlecolor, bgcolor) {
+function colorConsole() {
 	var original = console['log'];
 	console['orgLog'] = function() {
 		if (original.apply){
@@ -24,7 +24,7 @@ function colorConsole(title, titlecolor, bgcolor) {
 	console['log'] = function() {
 		if (original.apply){
             // Do this for normal browsers
-            original.apply(console, colorConsoleGet(title, titlecolor, bgcolor, arguments))
+            original.apply(console, colorConsoleGet(arguments))
         }else{
             // Do this for IE
             var message = Array.prototype.slice.apply(arguments).join(' ')
@@ -32,20 +32,19 @@ function colorConsole(title, titlecolor, bgcolor) {
         }
 	}
 	console.log(Array(
-		Array("colorConsole Loaded and Ready (V "+colorConsoleVersion+")", "#6BB9F0")
+		Array("color", "#FF3B30"),
+		Array("Console" "#0BD318"),
+		Array("Loaded and Ready (V "+colorConsoleVersion+")", "#6BB9F0")
 	));
 }
 
-function colorConsoleGet(title, titlecolor, bgcolor, message) {
+function colorConsoleGet(message) {
 	if ( message !== null && typeof message === 'object' ) {
 		message = message[0];
 	}
 	if (message instanceof Array) {
 		var messages = Array();
 		var styles = Array();
-
-		messages.push("%c"+title);
-		styles.push("background: "+bgcolor+"; color: "+titlecolor+";");
 
 		for (index = 0; index < message.length; ++index) {
 			args = message[index];
@@ -55,9 +54,9 @@ function colorConsoleGet(title, titlecolor, bgcolor, message) {
 			if (args.length == 3) {
 				bg = args[2].trim();
 			} else {
-				bg = bgcolor;
+				bg = "#222";
 			}
-			messages.push(" %c" + msg);
+			messages.push("%c" + msg + " ");
 			styles.push("background: " + bg + "; color: " + color);
 		}
 
@@ -72,3 +71,5 @@ function colorConsoleGet(title, titlecolor, bgcolor, message) {
 		return Array(message);
 	}
 }
+
+colorConsole();
