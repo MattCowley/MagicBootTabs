@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.39";
+var magicBootTabsVersion = "1.40";
 var currentMessage;
 
 // Colored Console Logging Function
@@ -36,11 +36,17 @@ var currentMessage;
 }());
 
 function consolelog(message) {
-	currentMessage = message;
+	currentMessage[0] = message;
 	if ( message !== null && typeof message === 'object' ) {
 		message = message[0];
 	}
-	if (message != "" && message instanceof Array) {
+	if (message.length == 1) {
+		if (message[0].indexOf(" -- ") == -1) {
+			message = message[0]
+		}
+	}
+	currentMessage[1] = message;
+	if (message instanceof Array) {
 		var messages = Array();
 		var styles = Array();
 
