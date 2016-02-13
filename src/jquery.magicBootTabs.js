@@ -7,8 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.42";
-var currentMessage, currentMessage2;
+var magicBootTabsVersion = "1.43";
 
 // Colored Console Logging Function
 (function() {
@@ -36,16 +35,12 @@ var currentMessage, currentMessage2;
 }());
 
 function consolelog(message) {
-	currentMessage = message;
 	if ( message !== null && typeof message === 'object' ) {
 		message = message[0];
 	}
-	if (message.length == 1) {
-		if (message[0].indexOf(" -- ") == -1) {
+	if (message.length == 1) { if (message[0].indexOf(" -- ") == -1) {
 			message = message[0]
-		}
-	}
-	currentMessage2 = message;
+	} }
 	if (message instanceof Array) {
 		var messages = Array();
 		var styles = Array();
@@ -74,7 +69,7 @@ function consolelog(message) {
 
 		return arguments;
 	} else {
-		return Array(message);
+		return {0: message};
 	}
 }
 
