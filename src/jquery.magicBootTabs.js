@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.43";
+var magicBootTabsVersion = "1.44";
 
 // Colored Console Logging Function
 (function() {
@@ -21,6 +21,7 @@ var magicBootTabsVersion = "1.43";
             var message = Array.prototype.slice.apply(arguments).join(' ')
             original(message)
         }
+        return "";
     }
 	console['log'] = function() {
 		if (original.apply){
@@ -31,6 +32,7 @@ var magicBootTabsVersion = "1.43";
             var message = Array.prototype.slice.apply(arguments).join(' ')
             original(message)
         }
+        return "";
 	}
 }());
 
@@ -69,7 +71,7 @@ function consolelog(message) {
 
 		return arguments;
 	} else {
-		return {0: message};
+		return Array(message);
 	}
 }
 
