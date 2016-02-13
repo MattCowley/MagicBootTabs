@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var MBTCCLoaderVersion = "1.02";
+var MBTCCLoaderVersion = "1.03";
 
 function loader(scripts, loadedCallback) {
 	var scriptURLS = {
@@ -16,6 +16,7 @@ function loader(scripts, loadedCallback) {
 	}
 
 	var scriptCount = scripts.length;
+	var scriptsLoaded = loadedCallback;
 
 	function loadScript(url, callback) {
 	    // Adding the script tag to the head as suggested before
@@ -39,7 +40,8 @@ function loader(scripts, loadedCallback) {
 				function(){ loadNext(index+1); }
 			);
 		} else {
-			loadedCallback;
+			console.log("Scripts Loaded");
+			scriptsLoaded;
 		}
 	}
 	loadNext(0);
