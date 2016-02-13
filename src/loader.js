@@ -7,14 +7,14 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.23";
+var LoaderVersion = "1.24";
 
 var urlscript = document.currentScript || (function() {
     var scripts = document.getElementsByTagName("script");
     return scripts[scripts.length - 1];
 })();
 
-function loader(items, loadedCallback) {
+function loader(items, loadedCallback, removeSelf) {
 
 	console.log("Loader Version "+LoaderVersion+" Starting");
 
@@ -70,9 +70,12 @@ function loader(items, loadedCallback) {
 			}
 		} else {
 			loadedCallback();
-			console.log("Loader Finished, Self Removing");
-			urlscript.remove();
-			elmscript.remove();
+			console.log("Loader Finished");
+			if (removeSelf) {
+				console.log("Loader Self-Removing");
+				urlscript.remove();
+				elmscript.remove();
+			}
 		}
 	}
 	loadNext(0);
