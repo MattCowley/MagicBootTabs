@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.41";
+var magicBootTabsVersion = "1.42";
 var currentMessage, currentMessage2;
 
 // Colored Console Logging Function
@@ -74,7 +74,7 @@ function consolelog(message) {
 
 		return arguments;
 	} else {
-		return message;
+		return Array(message);
 	}
 }
 
