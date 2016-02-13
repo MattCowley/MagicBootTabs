@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.14";
+var LoaderVersion = "1.15";
 
 function loader(items, loadedCallback) {
 	var itemURLS = {
@@ -50,7 +50,8 @@ function loader(items, loadedCallback) {
 			);
 		} else {
 			loadedCallback();
-			console.log(document.currentScript);
+			var target = event.target || event.srcElement;
+			console.log(target);
 		}
 	}
 	loadNext(0);
