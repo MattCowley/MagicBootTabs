@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.07";
+var LoaderVersion = "1.08";
 
 function loader(scripts, loadedCallback) {
 	var scriptURLS = {
@@ -16,6 +16,7 @@ function loader(scripts, loadedCallback) {
 		"jQuery": Array("script", "//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"),
 		"bootStrapJS": Array("script", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"),
 		"bootStrapCSS": Array("style", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")
+		"bootSwatchSuperhero": Array("style", "//bootswatch.com/superhero/bootstrap.css")
 	}
 
 	var scriptCount = scripts.length;
