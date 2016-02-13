@@ -7,11 +7,10 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.16";
+var LoaderVersion = "1.17";
 
 function loader(items, loadedCallback) {
-	var target = event.target || event.srcElement;
-	console.log(target);
+	console.log(this);
 
 	var itemURLS = {
 		"colorConsole": Array("script", "//rawgit.com/MattCowley/MagicBootTabs/master/src/colorConsole.js"),
