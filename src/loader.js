@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.22";
+var LoaderVersion = "1.23";
 
 var urlscript = document.currentScript || (function() {
     var scripts = document.getElementsByTagName("script");
@@ -15,6 +15,8 @@ var urlscript = document.currentScript || (function() {
 })();
 
 function loader(items, loadedCallback) {
+
+	console.log("Loader Version "+LoaderVersion+" Starting");
 
 	var elmscript = document.currentScript || (function() {
 	    var scripts = document.getElementsByTagName("script");
@@ -68,6 +70,7 @@ function loader(items, loadedCallback) {
 			}
 		} else {
 			loadedCallback();
+			console.log("Loader Finished, Self Removing");
 			urlscript.remove();
 			elmscript.remove();
 		}
