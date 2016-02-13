@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.09";
+var LoaderVersion = "1.10";
 
 function loader(items, loadedCallback) {
 	var itemURLS = {
@@ -23,22 +23,23 @@ function loader(items, loadedCallback) {
 
 	function loadItem(url, type, callback) {
 	    var head = document.getElementsByTagName('head')[0];
-	    var item;
 
 	    if (type == "script") {
-		    item = document.createElement('script');
+		    var item = document.createElement('script');
 		    item.type = 'text/javascript';
 		    item.src = url;
+		    item.onreadystatechange = callback;
+		    item.onload = callback;
+		    head.appendChild(item);
 		}
 		if (type == "style") {
-		    item = document.createElement('link');
+		    var item = document.createElement('link');
 		    item.rel = 'stylesheet';
 		    item.href = url;
+		    item.onreadystatechange = callback;
+		    item.onload = callback;
+		    head.appendChild(item);
 		}
-	    
-	    item.onreadystatechange = callback;
-	    item.onload = callback;
-	    head.appendChild(item);
 	}
 	function loadNext(index) {
 		if (index < itemCount) {
