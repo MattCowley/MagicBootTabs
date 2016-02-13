@@ -7,11 +7,21 @@
  */
 
 //Declare Version
-var magicBootTabsVersion = "1.27";
+var magicBootTabsVersion = "1.28";
 
 // Colored Console Logging Function
 (function() {
 	var original = console['log'];
+	console['orgLog'] = function() {
+		if (original.apply){
+            // Do this for normal browsers
+            original.apply(console, arguments)
+        }else{
+            // Do this for IE
+            var message = Array.prototype.slice.apply(arguments).join(' ')
+            original(message)
+        }
+    }
 	console['log'] = function() {
 		if (original.apply){
             // Do this for normal browsers
@@ -34,7 +44,7 @@ function consolelog(message) {
 
 		for (index = 0; index < message.length; ++index) {
 			args = message[index];
-			oldconsolelog(args);
+			console.orgLog(args);
 			args = args.split(" -- ");
 			msg = args[0].trim();
 			color = args[1].trim();
