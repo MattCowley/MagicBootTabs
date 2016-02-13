@@ -7,7 +7,7 @@
  */
 
 //Declare Version
-var LoaderVersion = "1.20";
+var LoaderVersion = "1.21";
 
 var urlscript = document.currentScript || (function() {
     var scripts = document.getElementsByTagName("script");
@@ -28,6 +28,8 @@ function loader(items, loadedCallback) {
 		"bootStrapJS": Array("script", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"),
 		"bootStrapCSS": Array("style", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"),
 		"bootSwatchSuperhero": Array("style", "//bootswatch.com/superhero/bootstrap.css"),
+		"bootSwatchDarkly": Array("style", "//bootswatch.com/darkly/bootstrap.css"),
+		"bootSwatchJournal": Array("style", "//bootswatch.com/journal/bootstrap.css"),
 	}
 
 	var itemCount = items.length;
